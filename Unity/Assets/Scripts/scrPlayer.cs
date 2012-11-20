@@ -13,8 +13,8 @@ public class scrPlayer : MonoBehaviour
 	private float fbSpd = 0.6f;	//forward backwards speed	
 	private float rotSpd = 2.0f; //rotation speed per frame
 	private float jumpForce = 500.0f; // jump force
-	
-	private bool isTouchedGround = false;	//Has the player touched the ground since his last jump?
+
+    public bool isTouchedGround = false;	//Has the player touched the ground since his last jump?
 	
 	
 	

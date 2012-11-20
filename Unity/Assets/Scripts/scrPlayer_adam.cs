@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 
-public class scrPlayer : MonoBehaviour
+public class scrPlayer_Adam : MonoBehaviour
 {
 	public int hp = 200;
 	public float horizontalSpeed = 0.2f;//strafe speed
@@ -80,7 +80,7 @@ public class scrPlayer : MonoBehaviour
 		if(Input.GetButtonDown("Jump") && isGrounded == true)//jump up on player's Y
 		{
 			rigidbody.AddForce(jumpForce * (h * 5) ,jumpForce * fallForce, jumpForce * (v * 10));//push the player 		
-			fallForce = player.rigidbody.velocity;
+//			fallForce = player.rigidbody.velocity;
 			print (fallForce);
 		}
 		

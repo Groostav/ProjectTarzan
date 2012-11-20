@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class scrPlayer : MonoBehaviour 
+public class scrPlayer_Thomas : MonoBehaviour 
 {		
 	public Texture2D textureWin;	// Victory Image
 	public const float buffSpace = 10.0f; // space around GUI stuff, so it's not just against the edge 
@@ -9,15 +9,15 @@ public class scrPlayer : MonoBehaviour
 	private const int textureWinHeight = 128;	// texture height of win message
 	private bool isVictory = false;		// victory condition
 
-	private float strafeSpd = 0.6f;	//horizontal strafe speed
-	private float fbSpd = 0.6f;	//forward backwards speed	
-	private float rotSpd = 2.0f; //rotation speed per frame
-	private float jumpForce = 2000.0f; // jump force
+	private const float strafeSpd = 0.6f;	//horizontal strafe speedd
+	private const float fbSpd = 0.6f;	//forward backwards speed	
+	private const float rotSpd = 2.0f; //rotation speed per frame
+	private const float jumpForce = 2000.0f; // jump force
 	private const float gravityForce = -50.0f;		//gravity force
 	
 	public bool isTouchedGround = false;	//Has the player touched the ground since his last jump?
 	
-	GameObject ropeShotSpot;	// A handel to the rope's shot spot
+	public GameObject ropeShotSpot;	// A handel to the rope's shot spot
 	
 	
 	// Use this for initialization
@@ -44,7 +44,7 @@ public class scrPlayer : MonoBehaviour
 	{
 
 		rigidbody.AddForce(0.0f, gravityForce, 0.0f);//apply gravity down
-
+        h
 				//player directional movement
 		float s = strafeSpd * Input.GetAxis("Strafe");
 		float fb = fbSpd * Input.GetAxis("ForwardBack");
