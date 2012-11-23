@@ -154,8 +154,8 @@ public class scrShootRope : MonoBehaviour
 		
 		//when too far away
 		//apply force in
-		if(currentRope.currentLength > (currentRope.savedLengt)//currentRope.maxStretch))
-		{h + 1)
+		if(currentRope.currentLength > (currentRope.savedLength + 1))//currentRope.maxStretch))
+		{
 			currentRope.tensionRatio = currentRope.currentLength * ((currentRope.currentLength - currentRope.savedLength)/2);
 			currentRope.ropeVector *= currentRope.tensionRatio;
 			transform.parent.parent.parent.rigidbody.AddForce(-currentRope.ropeVector);//force in, attraction

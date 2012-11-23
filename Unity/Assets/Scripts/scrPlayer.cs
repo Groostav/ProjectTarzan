@@ -15,6 +15,11 @@ public class scrPlayer : MonoBehaviour
 	private float jumpForce = 500.0f; // jump force
 
     public bool isTouchedGround = false;	//Has the player touched the ground since his last jump?
+
+
+    private float horizontalSpeed = 0.2f;//strafe speed
+    private float verticalSpeed = 0.2f;//forward back speed
+    private float rotateSpeed = 2.0f;//rotation speed
 	
 	
 	
@@ -45,13 +50,20 @@ public class scrPlayer : MonoBehaviour
 		float fb = fbSpd * Input.GetAxis("ForwardBack");
 		transform.Translate(s, 0, fb);	//movement x, and z
 
-				
-			//Player jump ability (has to have touched the ground since last jump)
-		if(Input.GetButtonDown("Jump") && isTouchedGround == true)
-		{
-			rigidbody.AddForce(0, jumpForce, 0);	//push player up
-			isTouchedGround = false;	//They are no longer touching the ground
-		}
+        float h = horizontalSpeed * Input.GetAxis("Horizontal");
+        float v = verticalSpeed * Input.GetAxis("Vertical");
+
+        var player = GameObject.Find("Player");
+
+        if (Input.GetButtonDown("Jump") && isTouchedGround)//jump up on player's Y
+        {
+            var jumpingForce = new Vector3(jumpForce * (h * 10), jumpForce, jumpForce * (v * 10));//push the player 		
+            rigidbody.AddForce(jumpingForce);
+            isTouchedGround = false;
+            //fallForce = player.rigidbody.velocity;
+            print(jumpingForce);
+        }
+
 			// Player horizontal camera movement
 		if(Input.GetButton("Fire2"))
 		{
@@ -68,10 +80,7 @@ public class scrPlayer : MonoBehaviour
 	void OnCollisionEnter(Collision hit)
 	{
 			//if player has hit the ground, they can jump again.
-		if(hit.gameObject.name == "floor")
-		{
-			isTouchedGround = true;
-		}
+	    isTouchedGround = true;
 		
 			//if the player has reached the goal
 		if(hit.gameObject.name == "goal")

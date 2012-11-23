@@ -9,7 +9,7 @@ public class scrPlayer_Adam : MonoBehaviour
 	public float verticalSpeed = 0.5f;//forward back speed
 	public float rotateSpeed = 2.0f;//rotation speed
 	float jumpForce = 500;//jump force
-	float fallForce = 1;
+    private Vector3 fallForce;
 	bool isGrounded = true;
 	bool inAir = false;
 	
@@ -27,7 +27,8 @@ public class scrPlayer_Adam : MonoBehaviour
 	{		
 		//## player 3d model
 		//isAttacking = false;
-		//isMoving = false;		
+		//isMoving = false;	
+	    fallForce = new Vector3(0, 1, 0);
 		bool inAir = false;
 	}
 	
@@ -76,11 +77,13 @@ public class scrPlayer_Adam : MonoBehaviour
 		
 		transform.Translate (h, 0, v);//movement in X,Z
 		transform.Rotate (Vector3.up, r);//rotation around player's Y
+
+	    var player = GameObject.Find("Player");
 		
 		if(Input.GetButtonDown("Jump") && isGrounded == true)//jump up on player's Y
 		{
-			rigidbody.AddForce(jumpForce * (h * 5) ,jumpForce * fallForce, jumpForce * (v * 10));//push the player 		
-//			fallForce = player.rigidbody.velocity;
+			rigidbody.AddForce(jumpForce * (h * 5), jumpForce * fallForce.y, jumpForce * (v * 10));//push the player 		
+			fallForce = player.rigidbody.velocity;
 			print (fallForce);
 		}
 		
