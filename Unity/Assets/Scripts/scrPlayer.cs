@@ -55,14 +55,14 @@ public class scrPlayer : MonoBehaviour
 
         var player = GameObject.Find("Player");
 
-        if (Input.GetButtonDown("Jump") && isTouchedGround)//jump up on player's Y
-        {
-            var jumpingForce = new Vector3(jumpForce * (h * 10), jumpForce, jumpForce * (v * 10));//push the player 		
-            rigidbody.AddForce(jumpingForce);
-            isTouchedGround = false;
-            //fallForce = player.rigidbody.velocity;
-            print(jumpingForce);
-        }
+//        if (Input.GetButtonDown("Jump")/* && isTouchedGround*/)//jump up on player's Y
+//        {
+//            var jumpingForce = new Vector3(jumpForce * (h * 10), jumpForce, jumpForce * (v * 10));//push the player 		
+//            rigidbody.AddForce(jumpingForce);
+//            isTouchedGround = false;
+//            //fallForce = player.rigidbody.velocity;
+//            print(jumpingForce);
+//        }
 
 			// Player horizontal camera movement
 		if(Input.GetButton("Fire2"))
