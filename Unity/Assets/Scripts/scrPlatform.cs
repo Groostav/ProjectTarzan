@@ -7,7 +7,7 @@ public class scrPlatform : MonoBehaviour {
     public float Multiplier;
 
     private const float HalfRoot2 = 1 / 1.41421356237F;
-    private const float _relativeAngle = 20F;
+    private const float _relativeAngle = 30F;
 
     private bool contact;
 

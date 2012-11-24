@@ -1,0 +1,7 @@
+D:\Users\Geoff\Desktop\312A2rev2\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Users\Geoff\Desktop\312A2rev2\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\Users\Geoff\Desktop\312A2rev2\Temp\bin\Debug\UnityEditor.dll
+D:\Users\Geoff\Desktop\312A2rev2\Temp\bin\Debug\UnityEngine.dll
+D:\Users\Geoff\Desktop\312A2rev2\Temp\bin\Debug\nunit.framework.dll
+D:\Users\Geoff\Desktop\312A2rev2\obj\Debug\Assembly-CSharp-firstpass.dll
+D:\Users\Geoff\Desktop\312A2rev2\obj\Debug\Assembly-CSharp-firstpass.pdb
