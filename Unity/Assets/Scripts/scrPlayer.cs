@@ -45,7 +45,7 @@ public class scrPlayer : MonoBehaviour
 
 
         //Player jump ability (has to have touched the ground since last jump)
-        if (Input.GetButtonDown("Jump") && isTouchedGround )
+        if (Input.GetButtonDown("Jump") && (isTouchedGround || scrGameManager.IsDebugMode()))
         {
             //Allow the player to jump off of their rope
             this.gameObject.GetComponentInChildren<scrShootRope>().isSwinging = false;

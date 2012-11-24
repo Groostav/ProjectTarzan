@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -5,17 +6,21 @@ public class scrPlatform : MonoBehaviour {
 
     public GameObject NextPlatform;
     public float Multiplier;
+    public bool debugEnabled;
 
     private const float HalfRoot2 = 1 / 1.41421356237F;
     private const float _relativeAngle = 30F;
 
+    private Action debugAction;
+
     private bool contact;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start ()
 	{
 	    Multiplier = (Multiplier == default(float) ? 1.0F : Multiplier);
 	    contact = false;
+	    debugAction = () => { };
 	}
 	
 	// Update is called once per frame
@@ -24,7 +29,7 @@ public class scrPlatform : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && contact)
         {
             var player = GameObject.Find("player");
-            player.transform.position = player.transform.position + new Vector3(0, 0.1F, 0);
+            player.transform.position = player.transform.position + new Vector3(0, 1.0F, 0);
             //TODO: use the capsules bottom position.
 
             var displacement = NextPlatform.transform.position - player.transform.position;//(player.transform.position + new Vector3(0, -0.5f, 0));
@@ -50,12 +55,20 @@ public class scrPlatform : MonoBehaviour {
             //        print(string.Format("Position: {0}, Velocity Magnitude: {1}, Velocity Direction: {2}", displacement,
             //                            velocityMagnitude, direction));
 
+            if (debugEnabled)
+            {
+                debugAction += () => Debug.DrawLine(NextPlatform.transform.position, player.transform.position, Color.cyan);
+                debugAction += () => Debug.DrawRay(player.transform.position, direction, Color.red);
+            }
+
             player.rigidbody.velocity = (velocityMagnitude * direction) * Multiplier;
             //TODO remove multiplier        var player = GameObject.Find("player");
 
             contact = false;
         }
-	}
+
+	    debugAction.Invoke();
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
