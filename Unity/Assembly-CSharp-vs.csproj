@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\scrPlayer_adam.cs" />
      <Compile Include="Assets\Scripts\scrRotateCamera.cs" />
      <Compile Include="Assets\Scripts\scrShootRope.cs" />
+     <None Include="Assets\Levels\sdasda.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Art\Nobiax Free Textures 04\readme.txt" />
   </ItemGroup>
